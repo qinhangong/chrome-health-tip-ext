@@ -1,5 +1,4 @@
 import { getStorage, STORAGEKEY, elePositionMap } from '../utils';
-// import "./index.less";
 
 
 function removeElement() {
@@ -8,9 +7,13 @@ function removeElement() {
 }
 
 function createInnerHtml(content) {
-  return `<div class="del_btn" onclick="(${removeElement})()">X</div>
+  return `<div id="del_btn">X</div>
     <div class="content_area">${content}</div>`
 }
+
+document.addEventListener('click', function (e) {
+  e.target.id === "del_btn" && removeElement()
+});
 
 async function appendElement() {
   const data = await getStorage(STORAGEKEY);

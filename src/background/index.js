@@ -1,5 +1,5 @@
 
-import { setStorage, STORAGEKEY, SUCCESSMSG, getSelectedTab } from '../utils';
+import { setStorage, removeStorage, STORAGEKEY, SUCCESSMSG, RESETMSG, getSelectedTab } from '../utils';
 
 window.currentTab = null;
 
@@ -22,7 +22,7 @@ async function init(data) {
   id && id > 0 && chrome.tabs.insertCSS(id, { file: 'src/content/index.css' });
 }
 
-chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(async (request) => {
   const { msgType, data } = request;
   await setStorage(STORAGEKEY, data)
   if (msgType === SUCCESSMSG && data) {
@@ -34,5 +34,11 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     window.timer = setInterval(() => {
       init(data);
     }, data.interval);
+  } else if (msgType === RESETMSG) {
+    if (window.timer) {
+      clearInterval(window.timer);
+      window.timer = null;
+    }
+    removeStorage(STORAGEKEY);
   }
 });

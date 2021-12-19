@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React, { useEffect } from 'react';
-import { SUCCESSMSG, STORAGEKEY, getStorage } from '../utils';
+import { SUCCESSMSG, RESETMSG, STORAGEKEY, getStorage } from '../utils';
 import { Form, Input, Button, Radio, message, InputNumber } from 'antd';
 
 import 'antd/dist/antd.less';
@@ -22,6 +22,7 @@ const App = () => {
 
   const onReset = () => {
     form.resetFields();
+    chrome.runtime.sendMessage({ msgType: RESETMSG });
   };
 
 
@@ -73,24 +74,6 @@ const App = () => {
     </div>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

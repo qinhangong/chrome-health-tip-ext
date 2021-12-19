@@ -5,7 +5,7 @@
   border-radius: 5px;
   z-index: 99999999;
 }
-.del_btn {
+#del_btn {
   width: 20px;
   height: 20px;
   overflow: hidden;
