@@ -58,7 +58,7 @@ const App = () => {
           name="interval"
           rules={[{ required: true, message: '请设置提醒时间' }]}
         >
-          <InputNumber min={0} addonBefore="每间隔" addonAfter="s" />
+          <InputNumber min={0} precision={0} addonBefore="每间隔" addonAfter="s" />
         </Form.Item>
 
 

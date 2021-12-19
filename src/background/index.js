@@ -10,14 +10,13 @@ chrome.tabs.onSelectionChanged.addListener(function (tabId, selectInfo) {
   })
 });
 
-
 async function init(data) {
   if (!data.interval || !data.content) return false;
   if (!window.currentTab) {
     window.currentTab = await getSelectedTab()
   };
   const { url = "", id } = window.currentTab || {};
-  if (url.includes("chrome://")) return;
+  if (url.startsWith("chrome")) return;
   id && id > 0 && chrome.tabs.executeScript(id, { file: 'dist/content.js' });
   id && id > 0 && chrome.tabs.insertCSS(id, { file: 'src/content/index.css' });
 }
@@ -33,7 +32,7 @@ chrome.runtime.onMessage.addListener(async (request) => {
     init(data);
     window.timer = setInterval(() => {
       init(data);
-    }, data.interval);
+    }, data.interval * 1000);
   } else if (msgType === RESETMSG) {
     if (window.timer) {
       clearInterval(window.timer);
