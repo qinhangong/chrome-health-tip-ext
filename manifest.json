@@ -8,10 +8,10 @@
     "48": "static/imgs/cross.png",
     "128": "static/imgs/cross.png"
   },
-  "background": {
-    "scripts": [
-      "dist/background.js"
-    ]
+  "browser_action": {
+    "default_icon": "static/imgs/cross.png",
+    "default_title": "程序员健康提醒",
+    "default_popup": "static/pop.html"
   },
   "content_scripts": [
     {
@@ -22,15 +22,17 @@
       "run_at": "document_end"
     }
   ],
-  "browser_action": {
-    "default_icon": "static/imgs/cross.png",
-    "default_title": "程序员健康提醒",
-    "default_popup": "static/pop.html"
+  "background": {
+    "scripts": [
+      "dist/background.js"
+    ]
   },
   "permissions": [
     "storage",
     "tabs",
-    "*://*/"
+    "*://*/",
+    "contextMenus",
+    "notifications"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
