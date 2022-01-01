@@ -102,5 +102,5 @@ const content_scripts = [
 // chrome.runtime.sendMessage({ msgType: 'fadf' });
 // chrome.extension.sendMessage({data:'121'});
 // background通过chrome.tabs.sendMessage(tabId,"1111");往content发消息
-// content通过chrome.runtime.onMessage.addListener();往接受从background发出发消息
+// content通过chrome.runtime.onMessage.addListener();接受从background发出发消息
 

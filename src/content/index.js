@@ -1,6 +1,5 @@
 import { getStorage, STORAGEKEY, elePositionMap } from '../utils';
 
-
 function removeElement() {
   const ele = document.getElementById('chrome_health_tip_container');
   if (ele) document.body.removeChild(ele);
@@ -25,7 +24,6 @@ async function appendElement() {
   ele.innerHTML = createInnerHtml(data.content);
   document.body.appendChild(ele);
 }
-
 
 appendElement()
 

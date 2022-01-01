@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React, { useEffect } from 'react';
-import { SUCCESSMSG, RESETMSG, STORAGEKEY, getStorage } from '../utils';
+import { SUBMITMSG, RESETMSG, STORAGEKEY, getStorage } from '../utils';
 import { Form, Input, Button, Radio, message, InputNumber } from 'antd';
 
 import 'antd/dist/antd.less';
@@ -17,7 +17,7 @@ const App = () => {
 
   const onFinish = (values) => {
     message.success("配置成功");
-    chrome.runtime.sendMessage({ msgType: SUCCESSMSG, data: values });
+    chrome.runtime.sendMessage({ msgType: SUBMITMSG, data: values });
   };
 
   const onReset = () => {

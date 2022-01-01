@@ -32,5 +32,5 @@
   - https://github.com/qinhangong/chrome-health-tip-ext
 
 ## 文档
-  - 官方文档好像无法访问
-  - https://open.chrome.360.cn/extension_dev/browserAction.html 360翻译的，不全
+  - chrome官方文档无法访问
+  - https://open.chrome.360.cn/extension_dev/browserAction.html 360翻译的

@@ -2,7 +2,7 @@ export const STORAGEKEY = 'health_tip_info';
 
 export const RESETMSG = 'config_reset';
 
-export const SUCCESSMSG = 'config_success';
+export const SUBMITMSG = 'config_success';
 
 
 export function setStorage(key, value, callback) {
